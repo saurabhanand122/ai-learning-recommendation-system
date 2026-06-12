@@ -1,0 +1,231 @@
+.header {
+  margin-bottom: 2rem;
+}
+
+.breadcrumb {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-size: 2rem;
+  margin-top: 0.25rem;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--border-glass);
+  border-top-color: var(--accent-purple);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 0;
+  gap: 1rem;
+}
+
+/* Filter Bar styles */
+.filterBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 1rem;
+  flex: 1;
+  max-width: 400px;
+  gap: 0.5rem;
+}
+
+.searchIcon {
+  color: var(--text-muted);
+}
+
+.searchInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  width: 100%;
+}
+
+.selectsWrapper {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.selectGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.selectLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.selectInput {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.75rem;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  outline: none;
+  cursor: pointer;
+  max-width: 200px;
+}
+
+.selectInput option {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* Empty Card */
+.emptyCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  gap: 1rem;
+}
+
+.emptyIcon {
+  color: var(--text-muted);
+}
+
+/* Feedback Cards Grid */
+.feedbackGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.feedbackCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-color: rgba(255,255,255,0.03);
+}
+
+.feedbackCard:hover {
+  border-color: rgba(139, 92, 246, 0.25);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.reviewerArea {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  color: var(--accent-purple);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-glass);
+}
+
+.reviewerArea h4 {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.rollNo {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.courseBadge {
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: #c084fc;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.ratingRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stars {
+  display: flex;
+  gap: 0.1rem;
+}
+
+.starFilled {
+  color: #fbbf24;
+  fill: #fbbf24;
+}
+
+.starEmpty {
+  color: var(--text-muted);
+}
+
+.dateLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.reviewTitle {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.reviewText {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}

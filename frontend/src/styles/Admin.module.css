@@ -1,0 +1,253 @@
+.header {
+  margin-bottom: 2rem;
+}
+
+.breadcrumb {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-size: 2rem;
+  margin-top: 0.25rem;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--border-glass);
+  border-top-color: var(--accent-purple);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 0;
+  gap: 1rem;
+}
+
+/* Dashboard Layout */
+.adminGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.metricsRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.adminMetricCard {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.metricLabel {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.adminMetricCard h2 {
+  font-size: 1.5rem;
+  font-family: var(--font-heading);
+}
+
+.metricIconBlue { color: var(--accent-blue); width: 36px; height: 36px; }
+.metricIconPurple { color: var(--accent-purple); width: 36px; height: 36px; }
+.metricIconPink { color: var(--accent-pink); width: 36px; height: 36px; }
+
+/* Config Area */
+.configArea {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.settingsCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.settingsHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-purple);
+  border-bottom: 1px solid var(--border-glass);
+  padding-bottom: 0.75rem;
+}
+
+.settingsHeader h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.configItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.15);
+  border: 1px solid var(--border-glass);
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.configItem h5 {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.configItem p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.15rem;
+}
+
+.limitForm, .limitDisplay {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.limitInput {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-glass);
+  color: var(--text-primary);
+  width: 60px;
+  padding: 0.35rem 0.5rem;
+  border-radius: 4px;
+  outline: none;
+  font-weight: 700;
+  text-align: center;
+}
+
+.limitVal {
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+.editBtn, .saveBtn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-glass);
+  color: var(--text-secondary);
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.editBtn:hover {
+  border-color: var(--accent-purple);
+  color: var(--accent-purple);
+  background: rgba(139, 92, 246, 0.05);
+}
+
+.saveBtn:hover {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+/* Availability seating table */
+.tableCard h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.tableDesc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.tableResponsive {
+  overflow-x: auto;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+}
+
+.availabilityTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.availabilityTable th {
+  background: rgba(255,255,255,0.02);
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.availabilityTable td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-glass);
+  color: var(--text-secondary);
+}
+
+.availabilityTable tbody tr:hover {
+  background: rgba(255,255,255,0.01);
+}
+
+.rowCritical {
+  background: rgba(239, 68, 68, 0.01) !important;
+}
+
+.rowCritical:hover {
+  background: rgba(239, 68, 68, 0.03) !important;
+}
+
+.seatsLeftOk {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.seatsLeftCritical {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+.statusNormal {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.statusCritical {
+  color: #ef4444;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
