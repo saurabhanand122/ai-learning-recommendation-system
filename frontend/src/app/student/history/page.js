@@ -15,7 +15,7 @@ export default function HistoryPage() {
   useEffect(() => {
     async function loadHistory() {
       try {
-        const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+        const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
         const res = await fetch(`${backendUrl}/api/recommendations/history`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
@@ -38,7 +38,7 @@ export default function HistoryPage() {
     if (!confirm('Are you sure you want to clear your recommendation history?')) return;
     
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
       const res = await fetch(`${backendUrl}/api/recommendations/history`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }

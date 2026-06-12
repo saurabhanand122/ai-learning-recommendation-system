@@ -28,7 +28,7 @@ export default function RecommendPage() {
   useEffect(() => {
     async function loadCourses() {
       try {
-        const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+        const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
         const res = await fetch(`${backendUrl}/api/courses`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
@@ -44,7 +44,7 @@ export default function RecommendPage() {
     // Auto load student profile properties to pre-fill the form
     async function loadProfile() {
       try {
-        const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+        const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
         const res = await fetch(`${backendUrl}/api/students/me`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
@@ -115,7 +115,7 @@ export default function RecommendPage() {
     setRecommendationResult(null);
 
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
       const response = await fetch(`${backendUrl}/api/recommendations/generate`, {
         method: 'POST',
         headers: {

@@ -22,7 +22,7 @@ export default function PodDashboard() {
 
   async function loadPodData() {
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
       
       // 1. Fetch courses list
       const coursesRes = await fetch(`${backendUrl}/api/courses`, {

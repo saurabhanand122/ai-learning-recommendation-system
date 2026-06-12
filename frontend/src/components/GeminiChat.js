@@ -43,7 +43,7 @@ export default function GeminiChat() {
     setIsLoading(true);
 
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
       const response = await fetch(`${backendUrl}/api/chat`, {
         method: 'POST',
         headers: {

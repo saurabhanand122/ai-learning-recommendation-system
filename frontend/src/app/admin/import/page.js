@@ -39,7 +39,7 @@ export default function AdminImportPage() {
     formData.append('file', file);
 
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
       const response = await fetch(`${backendUrl}/api/import/enrollments`, {
         method: 'POST',
         headers: {

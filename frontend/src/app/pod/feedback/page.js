@@ -22,7 +22,7 @@ export default function PodFeedbackRepository() {
   useEffect(() => {
     async function loadData() {
       try {
-        const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+        const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
         
         // 1. Fetch all feedback
         const fbRes = await fetch(`${backendUrl}/api/feedback`, {

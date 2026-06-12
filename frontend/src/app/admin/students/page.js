@@ -31,7 +31,7 @@ export default function AdminStudentsPage() {
 
   async function loadStudents() {
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
       const res = await fetch(`${backendUrl}/api/students`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -96,7 +96,7 @@ export default function AdminStudentsPage() {
     };
 
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
       const url = formMode === 'add' 
         ? `${backendUrl}/api/students` 
         : `${backendUrl}/api/students/${rollNo}`;
@@ -128,7 +128,7 @@ export default function AdminStudentsPage() {
     if (!confirm(`Are you sure you want to delete student ${roll}?`)) return;
 
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
       const response = await fetch(`${backendUrl}/api/students/${roll}`, {
         method: 'DELETE',
         headers: {

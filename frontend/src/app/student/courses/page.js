@@ -26,7 +26,7 @@ export default function CoursesPage() {
   useEffect(() => {
     async function loadCourses() {
       try {
-        const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+        const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
         const res = await fetch(`${backendUrl}/api/courses`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
@@ -57,7 +57,7 @@ export default function CoursesPage() {
     setDescription('');
 
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
       
       // 1. Fetch course stats (average rating)
       const statsRes = await fetch(`${backendUrl}/api/feedback/stats/course/${course.course_code}`, {
@@ -105,7 +105,7 @@ export default function CoursesPage() {
     };
 
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
       const url = isEditing && userFeedback 
         ? `${backendUrl}/api/feedback/modify/${userFeedback.id}`
         : `${backendUrl}/api/feedback`;
@@ -137,7 +137,7 @@ export default function CoursesPage() {
     if (!userFeedback || !confirm('Are you sure you want to delete your feedback?')) return;
 
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
       const response = await fetch(`${backendUrl}/api/feedback/modify/${userFeedback.id}`, {
         method: 'DELETE',
         headers: {

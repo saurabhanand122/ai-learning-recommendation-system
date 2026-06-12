@@ -17,7 +17,7 @@ export default function StudentDashboard() {
   useEffect(() => {
     async function fetchProfile() {
       try {
-        const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+        const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5050';
         const response = await fetch(`${backendUrl}/api/students/me`, {
           headers: {
             'Authorization': `Bearer ${token}`
