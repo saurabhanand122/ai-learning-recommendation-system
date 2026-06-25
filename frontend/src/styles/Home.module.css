@@ -442,4 +442,25 @@
     width: 100%;
     justify-content: center;
   }
+
+  /* Interactive Learning Tree mobile responsiveness */
+  .splitRow {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .splitRow .treeNode {
+    width: 80%;
+  }
+
+  .connectorSplit {
+    width: 2px;
+    height: 20px;
+    border-left: 2px dashed var(--accent-pink);
+    border-right: none;
+    border-bottom: none;
+    margin: 5px 0;
+  }
 }

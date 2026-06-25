@@ -207,8 +207,19 @@
     gap: 1rem;
   }
   .flowConnector {
-    transform: rotate(90deg);
+    flex-direction: column;
+    transform: none;
     padding: 0.5rem 0;
+    height: 30px;
+    width: auto;
+  }
+  .connectorLine {
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(to bottom, rgba(139, 92, 246, 0.5), rgba(6, 182, 212, 0.5));
+  }
+  .connectorArrow {
+    transform: rotate(90deg);
   }
 }
 
