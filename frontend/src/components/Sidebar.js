@@ -21,19 +21,22 @@ import {
   Sun,
   Moon,
   Calendar,
-  CheckCircle2
+  CheckCircle2,
+  Menu,
+  X
 } from 'lucide-react';
 import styles from '@/styles/Sidebar.module.css';
 
 export default function Sidebar() {
   const { user, role, isMock, setMockRole, logout } = useSessionAuth();
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme, sidebarOpen, toggleSidebar, closeSidebar } = useTheme();
   const pathname = usePathname();
   const router = useRouter();
 
   const handleRoleChange = (e) => {
     const newRole = e.target.value;
     setMockRole(newRole);
+    closeSidebar();
     // Redirect to the new role dashboard
     if (newRole === 'admin') router.push('/admin');
     else if (newRole === 'pod') router.push('/pod');
@@ -42,6 +45,7 @@ export default function Sidebar() {
 
   const handleLogout = () => {
     logout();
+    closeSidebar();
     router.push('/');
   };
 
@@ -81,79 +85,107 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className={`${styles.sidebar} glass-panel`}>
-      {/* Brand Logo */}
-      <div className={styles.brand} onClick={() => router.push('/')}>
-        <GraduationCap className={styles.brandIcon} />
-        <span className={styles.brandName}>Path<span className="gradient-text">Craft</span></span>
+    <>
+      {/* Mobile Sticky/Fixed Navbar */}
+      <div className={`${styles.mobileHeader} glass-panel`}>
+        <button 
+          className={styles.hamburgerBtn} 
+          onClick={toggleSidebar} 
+          aria-label={sidebarOpen ? "Close menu" : "Open menu"}
+        >
+          {sidebarOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+        
+        <div className={styles.mobileBrand} onClick={() => { closeSidebar(); router.push('/'); }}>
+          <GraduationCap className={styles.mobileBrandIcon} />
+          <span className={styles.mobileBrandName}>Path<span className="gradient-text">Craft</span></span>
+        </div>
+        
+        {/* Balanced spacer */}
+        <div style={{ width: 36 }}></div>
       </div>
 
-      {/* User Profile Card */}
-      {user && (
-        <div className={styles.profileCard}>
-          <div className={styles.avatar}>
-            {user.name.charAt(0).toUpperCase()}
-          </div>
-          <div className={styles.profileInfo}>
-            <h4 className={styles.profileName}>{user.name}</h4>
-            <div className={styles.roleBadge}>
-              {getRoleIcon()}
-              <span className={styles.roleText}>{role.toUpperCase()}</span>
-            </div>
-          </div>
-        </div>
+      {/* Sidebar Backdrop Overlay on Mobile */}
+      {sidebarOpen && (
+        <div className={styles.backdrop} onClick={closeSidebar} />
       )}
 
-      {/* Navigation Menu */}
-      <nav className={styles.menu}>
-        <span className={styles.menuHeader}>Menu</span>
-        <ul className={styles.menuList}>
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = pathname === item.path;
-            return (
-              <li key={item.path}>
-                <Link 
-                  href={item.path} 
-                  className={`${styles.menuItem} ${isActive ? styles.active : ''}`}
-                >
-                  <Icon size={18} className={styles.itemIcon} />
-                  <span className={styles.itemLabel}>{item.label}</span>
-                  {isActive && <ChevronRight size={14} className={styles.activeIndicator} />}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
+      {/* Main Sidebar Element */}
+      <aside className={`${styles.sidebar} ${sidebarOpen ? styles.open : ''} glass-panel`}>
+        {/* Brand Logo */}
+        <div className={styles.brand} onClick={() => { closeSidebar(); router.push('/'); }}>
+          <GraduationCap className={styles.brandIcon} />
+          <span className={styles.brandName}>Path<span className="gradient-text">Craft</span></span>
+        </div>
 
-      {/* Sidebar Footer */}
-      <div className={styles.footer}>
-        {isMock && (
-          <div className={styles.roleSwitcher}>
-            <span className={styles.switcherLabel}>Quick Switch Role</span>
-            <select 
-              value={role} 
-              onChange={handleRoleChange}
-              className={styles.switcherSelect}
-            >
-              <option value="student">Student Portal</option>
-              <option value="admin">Admin Portal</option>
-              <option value="pod">POD Portal</option>
-            </select>
+        {/* User Profile Card */}
+        {user && (
+          <div className={styles.profileCard}>
+            <div className={styles.avatar}>
+              {user.name.charAt(0).toUpperCase()}
+            </div>
+            <div className={styles.profileInfo}>
+              <h4 className={styles.profileName}>{user.name}</h4>
+              <div className={styles.roleBadge}>
+                {getRoleIcon()}
+                <span className={styles.roleText}>{role.toUpperCase()}</span>
+              </div>
+            </div>
           </div>
         )}
-        
-        <button className={styles.themeToggleBtn} onClick={toggleTheme} title="Toggle Light/Dark Theme">
-          {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
-          <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
-        </button>
 
-        <button className={styles.logoutBtn} onClick={handleLogout}>
-          <LogOut size={16} />
-          <span>Logout</span>
-        </button>
-      </div>
-    </aside>
+        {/* Navigation Menu */}
+        <nav className={styles.menu}>
+          <span className={styles.menuHeader}>Menu</span>
+          <ul className={styles.menuList}>
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = pathname === item.path;
+              return (
+                <li key={item.path}>
+                  <Link 
+                    href={item.path} 
+                    className={`${styles.menuItem} ${isActive ? styles.active : ''}`}
+                    onClick={closeSidebar}
+                  >
+                    <Icon size={18} className={styles.itemIcon} />
+                    <span className={styles.itemLabel}>{item.label}</span>
+                    {isActive && <ChevronRight size={14} className={styles.activeIndicator} />}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+
+        {/* Sidebar Footer */}
+        <div className={styles.footer}>
+          {isMock && (
+            <div className={styles.roleSwitcher}>
+              <span className={styles.switcherLabel}>Quick Switch Role</span>
+              <select 
+                value={role} 
+                onChange={handleRoleChange}
+                className={styles.switcherSelect}
+              >
+                <option value="student">Student Portal</option>
+                <option value="admin">Admin Portal</option>
+                <option value="pod">POD Portal</option>
+              </select>
+            </div>
+          )}
+          
+          <button className={styles.themeToggleBtn} onClick={() => { toggleTheme(); closeSidebar(); }} title="Toggle Light/Dark Theme">
+            {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+            <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
+          </button>
+
+          <button className={styles.logoutBtn} onClick={handleLogout}>
+            <LogOut size={16} />
+            <span>Logout</span>
+          </button>
+        </div>
+      </aside>
+    </>
   );
 }

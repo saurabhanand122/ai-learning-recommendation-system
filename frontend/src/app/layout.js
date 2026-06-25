@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
       <head>
         <title>Learning Path Recommendation System</title>
         <meta name="description" content="AI-powered course advisor for personalized academic roadmaps." />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
       </head>
       <body>
         {isClerkEnabled ? (

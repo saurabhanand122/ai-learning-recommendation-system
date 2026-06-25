@@ -4,11 +4,15 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const ThemeContext = createContext({
   theme: 'dark', // Default dark
-  toggleTheme: () => {}
+  toggleTheme: () => {},
+  sidebarOpen: false,
+  toggleSidebar: () => {},
+  closeSidebar: () => {}
 });
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState('dark');
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     // Load theme from localStorage if available
@@ -24,8 +28,22 @@ export function ThemeProvider({ children }) {
     document.body.className = newTheme;
   };
 
+  const toggleSidebar = () => {
+    setSidebarOpen(prev => !prev);
+  };
+
+  const closeSidebar = () => {
+    setSidebarOpen(false);
+  };
+
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ 
+      theme, 
+      toggleTheme, 
+      sidebarOpen, 
+      toggleSidebar, 
+      closeSidebar 
+    }}>
       {children}
     </ThemeContext.Provider>
   );
