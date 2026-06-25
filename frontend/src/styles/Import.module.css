@@ -23,19 +23,24 @@
 /* Importer Grid */
 .importGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 2rem;
   align-items: start;
+  width: 100%;
+  max-width: 100%;
 }
 
 @media (max-width: 900px) {
   .importGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
 .instructionsCard, .uploadCard {
   padding: 2rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .cardHeader {

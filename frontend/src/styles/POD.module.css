@@ -80,13 +80,15 @@
 /* Charts container */
 .chartsContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1.5rem;
+  width: 100%;
+  max-width: 100%;
 }
 
 @media (max-width: 1000px) {
   .chartsContainer {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -95,6 +97,9 @@
   flex-direction: column;
   gap: 1.25rem;
   padding: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .chartHeader h3 {

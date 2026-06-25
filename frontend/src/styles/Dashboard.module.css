@@ -124,7 +124,7 @@
 /* Advising Grid */
 .advisingGrid {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   gap: 1.5rem;
   align-items: start;
   width: 100%;
@@ -134,7 +134,7 @@
 
 @media (max-width: 900px) {
   .advisingGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -142,10 +142,16 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .rightCol {
   height: 100%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .infoBox {

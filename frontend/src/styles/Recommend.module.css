@@ -64,19 +64,24 @@
 /* Inputs Card */
 .formGrid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 2rem;
   align-items: start;
+  width: 100%;
+  max-width: 100%;
 }
 
 @media (max-width: 900px) {
   .formGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
 .inputsCard, .coursesCard {
   padding: 2rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .inputBtnGroup {
@@ -295,14 +300,16 @@
 
 .resultsGrid {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
   gap: 1.5rem;
   align-items: start;
+  width: 100%;
+  max-width: 100%;
 }
 
 @media (max-width: 900px) {
   .resultsGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -310,6 +317,9 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .colHeader {
@@ -373,6 +383,9 @@
 
 .criteriaCol {
   height: 100%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .criteriaGroup {
