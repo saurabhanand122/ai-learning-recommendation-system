@@ -5,6 +5,9 @@
   min-height: 480px;
   padding: 0 !important;
   overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .header {
